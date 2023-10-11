@@ -1,0 +1,19 @@
+{
+  "name": "@hexlet/code",
+  "version": "0.1.0",
+  "description": "Learn algorithms on search engine project",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdemikhov/algorithms-project-69.git"
+  },
+  "author": "Sergey Demikhov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdemikhov/algorithms-project-69/issues"
+  },
+  "homepage": "https://github.com/sdemikhov/algorithms-project-69#readme"
+}
