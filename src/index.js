@@ -1,14 +1,18 @@
-const search = (docs, target) =>
-  docs
+const search = (docs, target) => {
+  const term = target.match(/\w+/g);
+  if (term == null) {
+    return [];
+  }
+
+  return docs
     .filter(({ text }) => {
-      // try to escapes user input to prevent regex syntax error
-      const sanitized = target.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
-      const m = text.match(new RegExp(`\\b(${sanitized})\\b`));
+      const m = text.match(new RegExp(`\\b(${term[0]})\\b`));
       if (m == null) {
         return false;
       }
       return true;
     })
     .map(({ id }) => id);
+};
 
 export default search;
