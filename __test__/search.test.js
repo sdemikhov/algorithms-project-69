@@ -8,8 +8,7 @@ const doc4 = { id: 'doc4', text: 'What is ashoot?' };
 const docs = [doc1, doc2, doc3, doc4];
 
 test('should find docs', () => {
-  expect(search(docs, 'shoot')).toStrictEqual(['doc1', 'doc2']);
-  expect(search(docs, 'shoot')).toStrictEqual(['doc1', 'doc2']);
+  expect(search(docs, 'shoot')).toStrictEqual(['doc2', 'doc1']);
   expect(search(docs, 'pint')).toStrictEqual(['doc1']);
   expect(search(docs, 'pint!')).toStrictEqual(['doc1']);
 });

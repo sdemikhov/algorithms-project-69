@@ -1,17 +1,19 @@
 const search = (docs, target) => {
-  const term = target.match(/\w+/g);
-  if (term == null) {
+  const termResult = target.match(/\w+/g);
+  if (termResult == null) {
     return [];
   }
-
+  const [term] = termResult;
   return docs
-    .filter(({ text }) => {
-      const m = text.match(new RegExp(`\\b(${term[0]})\\b`));
-      if (m == null) {
-        return false;
+    .reduce((acc, doc) => {
+      const targetResult = doc.text.matchAll(new RegExp(`\\b(${term})\\b`, 'g'));
+      const match = [...targetResult];
+      if (match.length === 0) {
+        return acc;
       }
-      return true;
-    })
+      return [...acc, { ...doc, matchLength: match.length }];
+    }, [])
+    .sort((doc1, doc2) => doc2.matchLength - doc1.matchLength)
     .map(({ id }) => id);
 };
 
